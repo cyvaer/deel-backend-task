@@ -11,6 +11,15 @@ app.set('models', sequelize.models)
  * FIX ME!
  * @returns contract by id
  */
+
+// Create app routes
+require('./modules/route')(app);
+
+app.get('/', getProfile, (req, res)=>{
+    console.log('getting profile', req.profile.dataValues);
+  res.send('hello root route').status(200);
+})
+
 app.get('/contracts/:id',getProfile ,async (req, res) =>{
     const {Contract} = req.app.get('models')
     const {id} = req.params

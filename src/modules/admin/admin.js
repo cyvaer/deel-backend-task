@@ -3,7 +3,7 @@
 
 const getBestProfession = async (req, res) => {
     try {
-        res.status(200).json(data);
+        res.send().status(200);
     } catch (exception) {
         log.error(message);
         res.status(status).json({ error: true, message });
@@ -13,7 +13,7 @@ const getBestProfession = async (req, res) => {
 
 const getBestClients = async (req, res) => {
     try {
-        res.status(200).json(data);
+        res.send().status(200);
     } catch (exception) {
         log.error(message);
         res.status(status).json({ error: true, message });

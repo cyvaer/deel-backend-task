@@ -1,7 +1,7 @@
 
 const getContractById = async (req, res) => {
     try {
-        res.status(200).json(data);
+        res.send().status(200);
     } catch (exception) {
         log.error(message);
         res.status(status).json({ error: true, message });
@@ -10,7 +10,7 @@ const getContractById = async (req, res) => {
 
 const getAllUserRelatedContracts = async (req, res) => {
     try {
-        res.status(200).json(data);
+        res.send().status(200);
     } catch (exception) {
         log.error(message);
         res.status(status).json({ error: true, message });
