@@ -3,4 +3,5 @@ module.exports = (app) => {
     require('./balances')(app);
     require('./contract')(app);
     require('./job')(app);
+    require('./auth')(app);
 }

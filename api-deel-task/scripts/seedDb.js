@@ -14,6 +14,8 @@ async function seed() {
       id: 1,
       firstName: 'Harry',
       lastName: 'Potter',
+      email: 'harry_potter@client.com',
+      password: 'samplep@ssword',
       profession: 'Wizard',
       balance: 1150,
       type:'client'
@@ -22,6 +24,8 @@ async function seed() {
       id: 2,
       firstName: 'Mr',
       lastName: 'Robot',
+      email: 'mr_robot@client.com',
+      password: 'samplep@ssword',
       profession: 'Hacker',
       balance: 231.11,
       type:'client'
@@ -30,6 +34,8 @@ async function seed() {
       id: 3,
       firstName: 'John',
       lastName: 'Snow',
+      email: 'john_snow@client.com',
+      password: 'samplep@ssword',
       profession: 'Knows nothing',
       balance: 451.3,
       type:'client'
@@ -38,6 +44,8 @@ async function seed() {
       id: 4,
       firstName: 'Ash',
       lastName: 'Kethcum',
+      email: 'ash_kethcum@client.com',
+      password: 'samplep@ssword',
       profession: 'Pokemon master',
       balance: 1.3,
       type:'client'
@@ -46,6 +54,8 @@ async function seed() {
       id: 5,
       firstName: 'John',
       lastName: 'Lenon',
+      email: 'john_lenon@contractor.com',
+      password: 'samplep@ssword',
       profession: 'Musician',
       balance: 64,
       type:'contractor'
@@ -54,6 +64,8 @@ async function seed() {
       id: 6,
       firstName: 'Linus',
       lastName: 'Torvalds',
+      email: 'linus_torvalds@contractor.com',
+      password: 'samplep@ssword',
       profession: 'Programmer',
       balance: 1214,
       type:'contractor'
@@ -62,14 +74,18 @@ async function seed() {
       id: 7,
       firstName: 'Alan',
       lastName: 'Turing',
+      email: 'alan_turing@contractor.com',
+      password: 'samplep@ssword',
       profession: 'Programmer',
       balance: 22,
       type:'contractor'
     }),
     Profile.create({
       id: 8,
-      firstName: 'Aragorn',
+      firstName: 'Aragon',
       lastName: 'II Elessar Telcontarvalds',
+      email: 'aragon@contractor.com',
+      password: 'samplep@ssword',
       profession: 'Fighter',
       balance: 314,
       type:'contractor'
