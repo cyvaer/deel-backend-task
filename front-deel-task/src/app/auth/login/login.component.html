@@ -1,0 +1,112 @@
+<div class="auth-container">
+  <div class="container">
+    <div class="banner">
+      <img
+        class="banner-image"
+        src="../../../assets/png/login-image.png"
+        height="305"
+        width="280"
+      />
+    </div>
+    <div class="content">
+      <div class="login-logo">
+        <img
+          class="logo-asset"
+          src="../../../assets/png/app-logo.png"
+          width="172"
+          height="65"
+        />
+        <div class="login-header">Welcome!</div>
+        <div class="login-info">
+          Complete the information below to sign in.
+        </div>
+        <mat-error class="auth-failed" *ngIf="loginForm.get('authFailed')">
+          Your username or password is incorrect
+        </mat-error>
+      </div>
+      <form
+        class="login-form"
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmit(loginForm.value)"
+      >
+        <section class="login-controls">
+          <mat-form-field class="sp-full-width" appearance="fill">
+            <input
+              matInput
+              autocomplete="userName"
+              formControlName="userName"
+              placeholder="Username"
+            />
+            <mat-error
+              *ngIf="
+                                loginForm.controls['userName'].errors['email'] &&
+                                !loginForm.controls['userName'].errors['required']
+                            "
+            >
+              Please enter a valid username
+            </mat-error>
+            <mat-error
+              class="error-display"
+              *ngIf="
+                                loginForm.controls['userName'].errors['required']
+                            "
+            >
+              Username is required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field
+            class="sp-full-width login-password"
+            appearance="fill"
+          >
+            <input
+              matInput
+              type="password"
+              autocomplete="password"
+              formControlName="password"
+              placeholder="Password"
+            />
+            <mat-error
+              class="error-display"
+              *ngIf="
+                                loginForm.controls['password'].errors['required']
+                            "
+            >
+              Password is required
+            </mat-error>
+            <mat-error
+              *ngIf="loginForm.controls['password'].errors['minlength']"
+            >
+              Password is too short
+            </mat-error>
+          </mat-form-field>
+
+          <section class="action-panel sp-flexContainer">
+            <mat-checkbox
+              class="remember"
+              formControlName="rememberMe"
+            >
+              Remember me?
+            </mat-checkbox>
+            <span class="sp-fill-remaining-space"></span>
+            <button
+              mat-button
+              class="forgot"
+              type="button"
+              (click)="onForgot()"
+            >
+              Forgot Password?
+            </button>
+          </section>
+          <button
+            type="submit"
+            class="sp-full-width action-button"
+            mat-raised-button
+            [disabled]="!loginForm.valid"
+          >
+            Login
+          </button>
+        </section>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,13 @@
 /* Structure */
+
+:host {
+  display: flex;
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+}
+
+
 .example-container {
   position: relative;
 }
@@ -45,3 +54,6 @@ table {
 .example-spacer {
   flex: 1 1 auto;
 }
+
+
+

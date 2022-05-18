@@ -1,0 +1,187 @@
+<div class="vertical-navigation-wrapper">
+
+  <!-- Header -->
+  <div class="vertical-navigation-header">
+    <ng-content select="[fuseVerticalNavigationHeader]"></ng-content>
+  </div>
+
+  <!-- User -->
+  <div class="flex flex-col items-center w-full p-4">
+    <div class="relative w-24 h-24">
+      <img
+        class="w-full h-full rounded-full"
+        *ngIf="true"
+        [src]="'../assets/avatars/harry_potter.jpeg'"
+        alt="User avatar">
+      <mat-icon
+        class="icon-size-24"
+        *ngIf="true"
+        [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
+    </div>
+    <div class="flex flex-col items-center justify-center w-full mt-6">
+      <div class="w-full whitespace-nowrap text-ellipsis overflow-hidden text-center leading-normal font-medium text-white">
+        Brian Huges
+      </div>
+      <div class="w-full mt-0.5 whitespace-nowrap text-ellipsis overflow-hidden text-center text-md leading-normal font-small text-secondary text-white">
+        hughes.brian@company.com
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div
+    class="vertical-navigation-content"
+    fuseScrollbar
+
+    #navigationContent>
+
+
+    <div class="vertical-navigation-item-wrapper">
+      <!-- Item with an internal link -->
+      <ng-container *ngIf="true">
+        <a
+          class="vertical-navigation-item"
+          [routerLink]="'/'"
+          [routerLinkActive]="'/'"
+          [matTooltip]="'wut'">
+          <!-- Icon -->
+          <ng-container *ngIf="true">
+            <mat-icon
+              class="vertical-navigation-item-icon text-white">
+              file_copy
+            </mat-icon>
+          </ng-container>
+          <!-- Title & Subtitle -->
+          <div class="vertical-navigation-item-title-wrapper">
+            <div class="vertical-navigation-item-title">
+            <span class="text-white">
+                {{'Contracts'}}
+            </span>
+            </div>
+          </div>
+        </a>
+      </ng-container>
+    </div>
+
+    <div class="vertical-navigation-item-wrapper">
+      <!-- Item with an internal link -->
+      <ng-container *ngIf="true">
+        <a
+          class="vertical-navigation-item"
+          [routerLink]="'/'"
+          [routerLinkActive]="'/'"
+          [matTooltip]="'wut'">
+          <!-- Icon -->
+          <ng-container *ngIf="true">
+            <mat-icon
+              class="vertical-navigation-item-icon text-white">
+              money_off
+            </mat-icon>
+          </ng-container>
+          <!-- Title & Subtitle -->
+          <div class="vertical-navigation-item-title-wrapper">
+            <div class="vertical-navigation-item-title">
+            <span class="text-white">
+                {{'Unpaid Jobs'}}
+            </span>
+            </div>
+          </div>
+        </a>
+      </ng-container>
+    </div>
+
+    <div class="vertical-navigation-item-wrapper">
+      <!-- Item with an internal link -->
+      <ng-container *ngIf="true">
+        <a
+          class="vertical-navigation-item"
+          [routerLink]="'/'"
+          [routerLinkActive]="'/'"
+          [matTooltip]="'wut'">
+          <!-- Icon -->
+          <ng-container *ngIf="true">
+            <mat-icon
+              class="vertical-navigation-item-icon text-white">
+              payment
+            </mat-icon>
+          </ng-container>
+          <!-- Title & Subtitle -->
+          <div class="vertical-navigation-item-title-wrapper">
+            <div class="vertical-navigation-item-title">
+            <span class="text-white">
+                {{'Pay Jobs'}}
+            </span>
+            </div>
+          </div>
+        </a>
+      </ng-container>
+    </div>
+
+
+    <div class="vertical-navigation-item-wrapper">
+      <!-- Item with an internal link -->
+      <ng-container *ngIf="true">
+        <a
+          class="vertical-navigation-item"
+          [routerLink]="'/'"
+          [routerLinkActive]="'/'"
+          [matTooltip]="'wut'">
+          <!-- Icon -->
+          <ng-container *ngIf="true">
+            <mat-icon
+              class="vertical-navigation-item-icon text-white">
+              account_balance
+            </mat-icon>
+          </ng-container>
+          <!-- Title & Subtitle -->
+          <div class="vertical-navigation-item-title-wrapper">
+            <div class="vertical-navigation-item-title">
+            <span class="text-white">
+                {{'Deposit money'}}
+            </span>
+            </div>
+          </div>
+        </a>
+      </ng-container>
+    </div>
+
+    <div class="vertical-navigation-item-wrapper">
+      <!-- Item with an internal link -->
+      <ng-container *ngIf="true">
+        <a
+          class="vertical-navigation-item"
+          [routerLink]="'/'"
+          [routerLinkActive]="'/'"
+          [matTooltip]="'wut'">
+          <!-- Icon -->
+          <ng-container *ngIf="true">
+            <mat-icon
+              class="vertical-navigation-item-icon text-white">
+              stars
+            </mat-icon>
+          </ng-container>
+          <!-- Title & Subtitle -->
+          <div class="vertical-navigation-item-title-wrapper">
+            <div class="vertical-navigation-item-title">
+            <span class="text-white">
+                {{'Admin'}}
+            </span>
+            </div>
+          </div>
+        </a>
+      </ng-container>
+    </div>
+
+    <!-- Content footer -->
+    <div class="vertical-navigation-content-footer">
+      <ng-content select="[fuseVerticalNavigationContentFooter]"></ng-content>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="vertical-navigation-footer">
+    <ng-content select="[fuseVerticalNavigationFooter]"></ng-content>
+  </div>
+
+</div>

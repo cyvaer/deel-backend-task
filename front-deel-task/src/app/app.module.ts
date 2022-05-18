@@ -1,29 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {MaterialExampleModule} from '../material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { SharedModule } from './shared/shared.module';
+import { AuthInterceptor } from './auth/interceptors/auth.interceptor';
+import { HomeModule } from 'src/app/home/home.module';
+import { HomeComponent} from "./home/home.component";
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
-    CommonModule,
+    SharedModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MaterialExampleModule,
     BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule
-
-
+    HomeModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

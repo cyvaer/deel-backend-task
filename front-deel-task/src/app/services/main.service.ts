@@ -14,7 +14,8 @@ export class MainService {
   }
 
   getAllProfileRelatedContracts(){
-    return this.http.get(`${environment.baseUrl}/contracts?profile_id=7`,{});
+    console.log('getAllProfileRelatedContracts');
+    return this.http.get(`${environment.baseUrl}/contracts?profile_id=1`,{});
 
   }
 

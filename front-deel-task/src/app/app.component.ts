@@ -1,12 +1,12 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import { MainService } from "./services/main.service";
-import { HttpClient } from '@angular/common/http';
+import {MainService} from "./services/main.service";
+import {HttpClient} from '@angular/common/http';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort, SortDirection} from '@angular/material/sort';
-// @ts-ignore
+
 import {merge, Observable, of as observableOf} from 'rxjs';
-import {catchError, map, startWith, switchMap} from 'rxjs/operators';
-import {FormControl, FormGroup} from "@angular/forms";
+
+import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 
 export interface GithubApi {
   items: GithubIssue[];
@@ -38,14 +38,25 @@ export interface GithubIssue2 {
 
 export class AppComponent implements AfterViewInit {
 
+  onSubmit() {
+
+  }
+
+  loginForm = this.fb.group({
+    username: [null],
+    password: [null]
+  });
+
   range = new FormGroup({
     start: new FormControl(),
     end: new FormControl()
   });
 
+
+
   displayedColumns: string[] = ['ClientId', 'ContractorId', 'createdAt', 'id', 'status', 'terms', 'updatedAt'];
   exampleDatabase: ExampleHttpDatabase | null | undefined;
-  data: GithubIssue[] = [];
+  data: GithubIssue2[] = [];
 
   resultsLength = 0;
   isLoadingResults = true;
@@ -56,12 +67,15 @@ export class AppComponent implements AfterViewInit {
 
   title = 'front-end-deel-task';
 
-  constructor(private mainService: MainService, private _httpClient: HttpClient) {
+  constructor(private mainService: MainService, private _httpClient: HttpClient,private fb: FormBuilder) {
+
+
 
     this.mainService.getContractById().subscribe((data:any): any => {
       console.log('getContractById: ', data);
     });
 
+    /*
     this.mainService.getAllProfileRelatedContracts().subscribe((data:any): any => {
       console.log('getAllProfileRelatedContracts: ', data);
     });
@@ -70,7 +84,7 @@ export class AppComponent implements AfterViewInit {
       console.log('getProfileRelatedUnpaidJobs: ', data);
     });
 
-    /*
+
 
     this.mainService.payJobToContractor().subscribe((data:any): any => {
       console.log('payJobToContractor: ', data);
@@ -81,7 +95,7 @@ export class AppComponent implements AfterViewInit {
     });
 
 
-    */
+
 
     this.mainService.getBestProfession().subscribe((data:any): any => {
       console.log('getBestProfession: ', data);
@@ -92,14 +106,13 @@ export class AppComponent implements AfterViewInit {
     });
 
 
+     */
 
-  }
 
-  startChange(event:any){
-    console.log('event', event);
   }
 
   ngAfterViewInit() {
+    console.log('ngAfterViewInit');
     this.exampleDatabase = new ExampleHttpDatabase(this._httpClient);
 
     // If the user changes the sort order, reset back to the first page.
@@ -108,12 +121,14 @@ export class AppComponent implements AfterViewInit {
     // this.sort.sortChange.subscribe(() => (this.paginator.pageIndex = 0));
 
     // @ts-ignore
+    //**
 
-    return this.mainService.getAllProfileRelatedContracts().subscribe((data: GithubIssue[]) => {
+    return this.mainService.getAllProfileRelatedContracts().subscribe((data: GithubIssue2[]) => {
       console.log('data www', data);
       this.data = data;
       this.isLoadingResults = false;
-    });
+    },error => {console.log('error', error)});
+
   }
 
 }
